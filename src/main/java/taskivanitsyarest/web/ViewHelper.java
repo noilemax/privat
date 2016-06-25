@@ -44,6 +44,5 @@ public class ViewHelper {
         response.setMessage("User has been deleted");
         return response;
     }
-    //todo по аналогии с созданием юзера, сделать удаление
 
 }

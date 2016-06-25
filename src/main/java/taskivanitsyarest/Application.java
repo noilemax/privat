@@ -1,5 +1,7 @@
 package taskivanitsyarest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,25 +23,31 @@ import java.util.Set;
 @EnableWebMvc
 public class Application {
 
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-//    @Bean
-//    public CommandLineRunner createDefaultData(UserRepository userRepository) {
-//        return (args) -> {
-//
-//            Set<User> userSet = new HashSet<>();
-//
-//            userSet.add(new User("Vasya", "qwerty123", (byte) 1));
-//            userSet.add(new User("Petya", "qwerty123", (byte) 1));
-//            userSet.add(new User("Slava", "qwerty123", (byte) 1));
-//            userSet.add(new User("Masha", "qwerty123", (byte) 1));
-//            userSet.add(new User("Sam", "qwerty123", (byte) 0));
-//
-//            userRepository.save(userSet);       // TODO: 24.06.2016
-//
-//        };
-//    }
+    @Bean
+    public CommandLineRunner createDefaultData(UserRepository userRepository) {
+        return (args) -> {
+
+            userRepository.save(new User("Vasya", "qwerty123", (byte) 1));
+            userRepository.save(new User("Some Guy", "qwerty123", (byte) 1));
+            userRepository.save(new User("Ivan", "qwerty123", (byte) 1));
+            userRepository.save(new User("Vasya4", "qwerty123", (byte) 1));
+            userRepository.save(new User("Qwerty", "qwerty123", (byte) 1));
+
+
+            log.info("LunchMenu findAll():");
+            log.info("-------------------------------");
+            for (User user1 : userRepository.findAll()) {
+                log.info(user1.toString());
+            }
+            log.info("-------------------------------");
+
+        };
+    }
 }
 

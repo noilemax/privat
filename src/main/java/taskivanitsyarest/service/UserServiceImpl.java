@@ -36,16 +36,12 @@ public class UserServiceImpl implements UserService {
 
         return result;
     }
-
     @Override
-    public User getUser(String userName) {
-        return null;
+    public User getUser(Long id) {
+        User result = userRepository.findOne(id);
+        return result;
     }
 
-//    @Override
-//    public User getUser(String userName) {
-//        return null;
-//    }
 
     @Override
     public void deleteUser(Long id) {
