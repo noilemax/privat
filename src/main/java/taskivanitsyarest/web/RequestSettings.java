@@ -5,12 +5,21 @@ package taskivanitsyarest.web;
  */
 public class RequestSettings {
 
+    private Long id;
     private String userName;
     private String password;
     private Byte isActive;
 
 
     public RequestSettings() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUserName() {

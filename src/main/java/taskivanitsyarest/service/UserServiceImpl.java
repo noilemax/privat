@@ -17,9 +17,24 @@ public class UserServiceImpl implements UserService {
     @Autowired(required = false)
     private UserRepository userRepository;
 
+
+        @Override
+    public void createUser(String userName, String password, Byte isActive) {
+        User newUser = new User();
+        newUser.setUsername(userName);
+        newUser.setPassword(password);
+        newUser.setIsactive(isActive);
+        List<User> listUser = new ArrayList<>();
+        listUser.add(newUser);
+
+        userRepository.save(listUser);
+    }
+
     @Override
     public List<User> getAllUsers() {
-        return null;
+        List<User> result = (List<User>) userRepository.findAll();
+
+        return result;
     }
 
     @Override
@@ -27,56 +42,23 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public void createUser(String userName, String password, Byte isActive) {
+//    @Override
+//    public User getUser(String userName) {
+//        return null;
+//    }
 
+    @Override
+    public void deleteUser(Long id) {
+        //TODO Verify for null and empty values
+        User user = userRepository.findOne(id);
+
+        userRepository.delete(user.getId());
     }
 
-    @Override
-    public void deleteUser(String userName) {
-
-    }
-
-    // TODO: 24.06.2016 методы пока заглушки, решить с наследованием интерфейса
 
 
 
 
-
-
-
-
-//        @Override
-//    public void createUser(String userName, String password, Byte isActive) {
-//        User newUser = new User();
-//        newUser.setUsername(userName);
-//        newUser.setPassword(password);
-//        newUser.setIsactive(isActive);
-//        List<User> listUser = new ArrayList<>();
-//        listUser.add(newUser);
-//
-//        userRepository.save(listUser);
-//    }
-//
-//    @Override
-//    public List<User> getAllUsers() {
-//        List<User> result = (List<User>) userRepository.findAll();
-//
-//        return result;
-//    }
-//
-//    @Override
-//    public void deleteUser(String userName) {
-//        //TODO Verify for null and empty values
-//        User user = userRepository.findByUserName(userName);
-//
-//        userRepository.delete(user.getId());
-//    }
-//
-//
-
-
-//
 //
 //    @Resource(name = "sessionFactory")
 //    private SessionFactory sessionFactory;

@@ -16,5 +16,5 @@ public interface UserService {
 
     void createUser(String userName, String password, Byte isActive);
 
-    void deleteUser(String userName);
+    void deleteUser(Long id);
 }

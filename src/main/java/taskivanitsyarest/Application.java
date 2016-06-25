@@ -37,7 +37,7 @@ public class Application {
 //            userSet.add(new User("Masha", "qwerty123", (byte) 1));
 //            userSet.add(new User("Sam", "qwerty123", (byte) 0));
 //
-////            userRepository.save(userSet);       // TODO: 24.06.2016
+//            userRepository.save(userSet);       // TODO: 24.06.2016
 //
 //        };
 //    }

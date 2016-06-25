@@ -3,7 +3,7 @@ package taskivanitsyarest.dao.entity;
 import javax.persistence.*;
 
 
-//@Entity
+@Entity
 @Table(name = "USER_ENTITY")
 public class User {
 

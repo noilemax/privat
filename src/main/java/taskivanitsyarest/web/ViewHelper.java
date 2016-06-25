@@ -39,7 +39,7 @@ public class ViewHelper {
 
     public Response deleteUser(RequestSettings settings){
         Response response = new Response();
-        userService.deleteUser(settings.getUserName());
+        userService.deleteUser(settings.getId());
         String message;
         response.setMessage("User has been deleted");
         return response;

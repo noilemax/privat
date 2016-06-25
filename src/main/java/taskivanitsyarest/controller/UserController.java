@@ -9,7 +9,7 @@ import taskivanitsyarest.web.Response;
 import taskivanitsyarest.web.ViewHelper;
 
 @RestController
-public class Controller {
+public class UserController {
 
     @Autowired
     protected ViewHelper viewHelper;
