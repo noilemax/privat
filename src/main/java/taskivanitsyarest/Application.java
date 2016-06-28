@@ -44,7 +44,7 @@ public class Application {
             log.info("-------------------------------");
 
             log.info("\n");
-            log.info("--findOne (2user)-----------------------------");
+            log.info("--findOne (user #2)-----------------------------");
             log.info("ID: " + userRepository.findOne(2L).getId().toString()
                     + "  NAME: " + userRepository.findOne(2L).getUsername().toString()
                     + "  PASSWORD: " + userRepository.findOne(2L).getPassword().toString()
@@ -54,7 +54,7 @@ public class Application {
             userRepository.delete(3L);
 
             log.info("\n");
-            log.info("--deleteOne (3user)-----------------------------");
+            log.info("--deleteOne (user #3)-----------------------------");
             for (User user1 : userRepository.findAll()) {
                 log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
             }
@@ -63,7 +63,7 @@ public class Application {
             userRepository.save(new User("New User", "newpass", (byte) 1));
 
             log.info("\n");
-            log.info("--findAll-----------------------------");
+            log.info("--add 1 and findAll-----------------------------");
             for (User user1 : userRepository.findAll()) {
                 log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
             }
