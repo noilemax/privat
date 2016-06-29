@@ -12,6 +12,8 @@ import java.io.Serializable;
 
 
 @Component
-public interface UserRepository extends CrudRepository<User, Long> {        // TODO: 24.06.2016 разобраться почему не проходит метод?
-//    User findByUserName(String userName);
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUserName(String userName);
+
+    void delete(String userName);
 }

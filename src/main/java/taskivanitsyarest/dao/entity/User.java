@@ -14,7 +14,7 @@ public class User {
 
     @Basic
     @Column(name = "USERNAME")
-    private String username;
+    private String login;
 
     @Basic
     @Column(name = "PASSWORD")
@@ -28,8 +28,8 @@ public class User {
     @JoinColumn(name = "ROLE_ID")
     private Role role;
 
-    public User(String username, String password, Byte isactive) {
-        this.username = username;
+    public User(String login, String password, Byte isactive) {
+        this.login = login;
         this.password = password;
         this.isactive = isactive;
     }
@@ -47,11 +47,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
@@ -87,7 +87,7 @@ public class User {
         User that = (User) o;
 
         if (id != that.id) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (isactive != null ? !isactive.equals(that.isactive) : that.isactive != null) return false;
 
@@ -97,7 +97,7 @@ public class User {
     @Override
     public int hashCode() {
         int result = id.intValue();
-        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (isactive != null ? isactive.hashCode() : 0);
         return result;

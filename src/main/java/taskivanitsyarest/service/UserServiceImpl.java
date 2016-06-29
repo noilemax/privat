@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
 
-        @Override
+    @Override
     public void createUser(String userName, String password, Byte isActive) {
         User newUser = new User();
         newUser.setUsername(userName);
@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
         return result;
     }
+
     @Override
     public User getUser(Long id) {
         User result = userRepository.findOne(id);
@@ -44,15 +45,21 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUser(String userName) {
         //TODO Verify for null and empty values
-        User user = userRepository.findOne(id);
+        User user = userRepository.findByUserName(userName);
 
-        userRepository.delete(user.getId());
+        userRepository.delete(user.getUsername());
     }
 
+    @Override
+    public User getUser(String login) {
+        User user = new User();
+        user.setUsername(login);
+        user.setPassword("7110eda4d09e062aa5e4a390b0a572ac0d2c0220");
 
-
+        return user;
+    }
 
 
 //

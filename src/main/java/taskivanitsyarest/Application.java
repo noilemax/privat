@@ -26,49 +26,49 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public CommandLineRunner createDefaultData(UserRepository userRepository) {
-        return (args) -> {
-
-            userRepository.save(new User("Vasya", "qwe23", (byte) 1));
-            userRepository.save(new User("Some Guy", "123", (byte) 1));
-            userRepository.save(new User("Ivan", "qwedfg23", (byte) 1));
-            userRepository.save(new User("Vasya4", "qwerty321", (byte) 1));
-            userRepository.save(new User("Qwerty", "qbnmfgy3", (byte) 1));
-
-            log.info("\n");
-            log.info("--findAll-----------------------------");
-            for (User user1 : userRepository.findAll()) {
-                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
-            }
-            log.info("-------------------------------");
-
-            log.info("\n");
-            log.info("--findOne (user #2)-----------------------------");
-            log.info("ID: " + userRepository.findOne(2L).getId().toString()
-                    + "  NAME: " + userRepository.findOne(2L).getUsername().toString()
-                    + "  PASSWORD: " + userRepository.findOne(2L).getPassword().toString()
-                    + "  ISaCTIV: " + userRepository.findOne(2L).getIsactive().toString());
-            log.info("-------------------------------");
-
-            userRepository.delete(3L);
-
-            log.info("\n");
-            log.info("--deleteOne (user #3)-----------------------------");
-            for (User user1 : userRepository.findAll()) {
-                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
-            }
-            log.info("-------------------------------");
-
-            userRepository.save(new User("New User", "newpass", (byte) 1));
-
-            log.info("\n");
-            log.info("--add 1 and findAll-----------------------------");
-            for (User user1 : userRepository.findAll()) {
-                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
-            }
-            log.info("-------------------------------");
-        };
-    }
+//    @Bean
+//    public CommandLineRunner createDefaultData(UserRepository userRepository) {
+//        return (args) -> {
+//
+//            userRepository.save(new User("Vasya", "qwe23", (byte) 1));
+//            userRepository.save(new User("Some Guy", "123", (byte) 1));
+//            userRepository.save(new User("Ivan", "qwedfg23", (byte) 1));
+//            userRepository.save(new User("Vasya4", "qwerty321", (byte) 1));
+//            userRepository.save(new User("Qwerty", "qbnmfgy3", (byte) 1));
+//
+//            log.info("\n");
+//            log.info("--findAll-----------------------------");
+//            for (User user1 : userRepository.findAll()) {
+//                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
+//            }
+//            log.info("-------------------------------");
+//
+//            log.info("\n");
+//            log.info("--findOne (user #2)-----------------------------");
+//            log.info("ID: " + userRepository.findOne(2L).getId().toString()
+//                    + "  NAME: " + userRepository.findOne(2L).getUsername().toString()
+//                    + "  PASSWORD: " + userRepository.findOne(2L).getPassword().toString()
+//                    + "  ISaCTIV: " + userRepository.findOne(2L).getIsactive().toString());
+//            log.info("-------------------------------");
+//
+//            userRepository.delete(3L);
+//
+//            log.info("\n");
+//            log.info("--deleteOne (user #3)-----------------------------");
+//            for (User user1 : userRepository.findAll()) {
+//                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
+//            }
+//            log.info("-------------------------------");
+//
+//            userRepository.save(new User("New User", "newpass", (byte) 1));
+//
+//            log.info("\n");
+//            log.info("--add 1 and findAll-----------------------------");
+//            for (User user1 : userRepository.findAll()) {
+//                log.info("ID: "+user1.getId().toString() + "  USERNAME: "+user1.getUsername().toString() + "  USER_PASSSWORD: " + user1.getPassword().toString());
+//            }
+//            log.info("-------------------------------");
+//        };
+//    }
 }
 
